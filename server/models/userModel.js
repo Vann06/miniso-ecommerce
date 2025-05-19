@@ -1,5 +1,5 @@
 import mongoose from "mongoose";
-import { use } from "react";
+
 
 const userSchema = new mongoose.Schema({
     name: {
@@ -11,13 +11,14 @@ const userSchema = new mongoose.Schema({
         required: true,
     },
     password: {
-        type: Number,
+        type: String,
         required: true,
     },
     rol: {
-        type: Number,
-        required: true,
+        type: String,
+        enum: ["client", "admin"],
+        default: "client",
     },
 });
 
-export default mongoose.model("User", userSchema);
+export const User = mongoose.model("User", userSchema);

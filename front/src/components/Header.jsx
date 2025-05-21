@@ -1,3 +1,4 @@
+import {Link} from 'react-router-dom';
 import React from 'react';
 import '../styles/header.css';
 import logo from '../assets/logo.png'; 
@@ -8,17 +9,19 @@ export default function Header() {
   return (
     <header className="main-header">
       <div className="header-left">
-        <img src={logo} alt="Miniso" className="header-logo" />
+        <Link to="/">
+          <img src={logo} alt="Miniso" className="header-logo" />
+        </Link>
       </div>
       <nav className="header-nav">
-        <a href="/about">About</a>
-        <a href="/shop">Shop</a>
-        <a href="/favorites">
-            <img src={heart} alt="Favorites" className="header-favorites" />
-        </a>
-        <a href="/cart">
-            <img src={cart} alt="Cart" className="header-cart" />
-        </a>
+        <Link to="/about">About</Link>
+        <Link to="/">Shop</Link>
+        <Link to="/favorites">
+          <img src={heart} alt="Favoritos" className="nav-icon" />
+        </Link>
+        <Link to="/cart">
+          <img src={cart} alt="Carrito" className="nav-icon" />
+        </Link>
       </nav>
     </header>
   );

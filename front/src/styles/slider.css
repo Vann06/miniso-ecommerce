@@ -1,0 +1,86 @@
+.slider-container {
+  position: relative;
+  width: 100%;
+  height: 400px;
+  overflow: hidden;
+  margin-top: 60px;
+}
+
+.slider-img-wrapper {
+  position: relative;
+  width: 100%;
+  height: 400px;
+  overflow: hidden;
+}
+
+.slider-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.slider-arrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  border: none;
+  background: none;
+  font-size: 50px;
+  color: #ffffff;
+  cursor: pointer;
+  padding: 6px 10px;
+  z-index: 10;
+  border-radius: 50%;
+  transition: transform 0.2s;
+}
+
+.slider-arrow:hover {
+  transform: translateY(-50%) scale(1.2);
+}
+
+.slider-arrow.left {
+  left: 20px;
+}
+
+.slider-arrow.right {
+  right: 20px;
+}
+
+.slider-dots {
+  position: absolute;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 10px;
+}
+
+.slider-dot {
+  width: 10px;
+  height: 10px;
+  background: #ddd;
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+.slider-dot.active {
+  background: #ec1c24;
+}
+
+.slider-wave-bottom {
+  position: absolute;
+  bottom: -1px;
+  left:0;
+  width: 100%;
+  height: 100px;
+  z-index: 1;
+}
+
+.slider-wave-wrapper{
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+}

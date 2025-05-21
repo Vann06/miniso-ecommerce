@@ -1,0 +1,45 @@
+.about-section {
+  background-color: #ffffff;
+  text-align: center;
+  padding: 80px 30px 60px;
+  color: #1c1c1c;
+}
+
+.about-content {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.about-logo {
+  width: 360px;
+  margin-bottom: 20px;
+}
+
+.about-title {
+  font-size: 28px;
+  font-weight: bold;
+  margin-bottom: 20px;
+  color: #ec1c24;
+}
+
+.about-paragraph {
+  font-size: 16px;
+  line-height: 1.7;
+  margin-bottom: 15px;
+}
+
+.about-btn {
+  margin-top: 30px;
+  display: inline-block;
+  background-color: #ec1c24;
+  color: #fff;
+  padding: 12px 24px;
+  border-radius: 5px;
+  text-decoration: none;
+  font-weight: bold;
+  transition: background-color 0.3s ease;
+}
+
+.about-btn:hover {
+  background-color: #c5101a;
+}

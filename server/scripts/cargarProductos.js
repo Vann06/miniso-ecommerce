@@ -28,7 +28,7 @@ const productosOnePiece = [
     description: 'Peluche adorable de Tony Tony Chopper con acabado suave. Ideal para mochilas o llaves.',
     price: 49.99,
     stock: 30,
-    imageUrl: 'https://res.cloudinary.com/dxjrdqbio/image/upload/v1744950806/llavero_chopper_jshguv.jpghttps://res.cloudinary.com/dxjrdqbio/image/upload/v1747682242/264054-1200-1200_ibs55d.webp',
+    imageUrl: 'https://res.cloudinary.com/dxjrdqbio/image/upload/v1747682242/264054-1200-1200_ibs55d.webp',
     category: 'decoracion',
     rating: 4.7
   },

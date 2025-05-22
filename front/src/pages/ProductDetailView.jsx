@@ -4,6 +4,7 @@ import axios from 'axios';
 import ProductInfo from '../components/ProductInfo';
 import ProductImageGallery from '../components/ProductImageGallery';
 import RecommendationList from '../components/RecommendationList';
+import '../styles/productDetail.css'
 
 export default function ProductDetailView() {
   const { id } = useParams();
@@ -24,8 +25,10 @@ export default function ProductDetailView() {
 
   return (
     <div className="product-detail">
-      <ProductImageGallery imageUrl={product.imageUrl} />
-      <ProductInfo product={product} onAddToCart={() => console.log('agregar')} />
+      <div className="product-detail-main">
+        <ProductInfo product={product} onAddToCart={() => console.log('agregar')} />
+        <ProductImageGallery product={product} />
+      </div>
       <RecommendationList currentProductId={product._id} allProducts={allProducts} />
     </div>
   );

@@ -12,7 +12,7 @@ export default function RecommendationList({ currentProductId, allProducts }) {
       <h3>Sugerencias</h3>
       <div className="recommendation-grid">
         {recommended.map(product => (
-          <ProductCard key={product.id} product={product} />
+          <ProductCard key={product._id} product={product} onAddToCart={() => {}} />
         ))}
       </div>
     </section>

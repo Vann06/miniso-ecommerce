@@ -1,0 +1,21 @@
+.product-detail-main {
+  display: flex;
+  gap: 2rem;
+  align-items: flex-start;
+  margin-bottom: 2rem;
+  margin-top: 3rem;
+}
+
+.product-gallery {
+  flex: 1 1 70%;
+  max-width: 50vw;
+}
+
+.product-info {
+  flex: 1 1 50%;
+  max-width: 50vw;
+  background: #fff;
+  padding: 2rem;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.07);
+}

@@ -1,37 +1,20 @@
-import React, { useState } from 'react';
+import React from 'react';
 import '../styles/productCard.css';
-import heartEmpty from '../assets/heart-empty.png';
-import heartFull from '../assets/heart-full.png';
+import ProductImage from './ProductImage';
+import ProductDetails from './ProductDetails';
+import AddToCartButton from './AddToCartButton';
+import FavoriteButton from './FavoriteButton';
 
-export default function ProductCard({ product, onAddToCart }) {
-  const [favorito, setFavorito] = useState(false);
-
-  const toggleFavorito = () => {
-    setFavorito(!favorito);
-  };
-
+export default function ProductCard({ product, onAddToCart, onFavorite, onClick }) {
   return (
-    <div className="product-card">
-      <button className="favorite-icon" onClick={toggleFavorito}>
-        <img
-          src={favorito ? heartFull : heartEmpty}
-          alt="Favorito"
-          className="heart-icon"
-        />
-      </button>
-
-      <img src={product.imageUrl} alt={product.name} className="product-img" />
-
-      <div className="product-info">
-        <h3 className="product-name">{product.name}</h3>
-        <p className="product-price">${product.price.toFixed(2)}</p>
-      </div>
-
-      <div className="product-actions">
-        <button className="add-to-cart" onClick={() => onAddToCart(product)}>
-          🛒 Add
-        </button>
-      </div>
+    <div className="product-card" onClick={onClick} style={{ cursor: 'pointer' }}>
+      <FavoriteButton />
+      <ProductImage imageUrl={product.imageUrl} name={product.name} />
+      <ProductDetails name={product.name} price={product.price} />
+      <AddToCartButton onClick={(e) => {
+        e.stopPropagation(); 
+        onAddToCart(product);
+      }} />
     </div>
   );
 }

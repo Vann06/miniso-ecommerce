@@ -5,10 +5,12 @@ import ProductCard from '../components/ProductCard';
 import Slider from '../components/Slider';
 import About from '../components/About';
 import axios from 'axios';
+import { useNavigate } from 'react-router-dom';
 import '../styles/home.css';
 
 export default function HomeView() {
     const [products, setProducts] = useState([]);
+    const navigate = useNavigate();
 
     useEffect(() => {
         axios.get('http://localhost:3001/api/products')
@@ -17,12 +19,10 @@ export default function HomeView() {
     }, []);
 
     const handleAddToCart = (product) => {
-        // Aquí puedes implementar la lógica para agregar el producto al carrito
         console.log('Producto agregado al carrito:', product);
     };
 
     const handleFavorite = (product) => {
-        // Aquí puedes implementar la lógica para agregar el producto a favoritos
         console.log('Producto agregado a favoritos:', product);
     }
     return (
@@ -34,10 +34,11 @@ export default function HomeView() {
                 <div className ="product-grid">     
                     {products.map(product => (
                         <ProductCard 
-                            key={product.id} 
-                            product={product} 
-                            onAddToCart={handleAddToCart} 
+                            key={product._id}
+                            product={product}
+                            onAddToCart={handleAddToCart}
                             onFavorite={handleFavorite}
+                            onClick={() => navigate(`/product/${product._id}`)}
                         />
                     ))}
                 </div>

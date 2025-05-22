@@ -1,47 +1,32 @@
-import React, { useState, useEffect } from 'react';
-import Header from '../components/Header';
-import Footer from '../components/Footer';
-
-
+import React, { useEffect, useState } from 'react';
+import { useParams } from 'react-router-dom';
+import axios from 'axios';
+import ProductInfo from '../components/ProductInfo';
+import ProductImageGallery from '../components/ProductImageGallery';
+import RecommendationList from '../components/RecommendationList';
 
 export default function ProductDetailView() {
-    const [product, setProduct] = useState(null);
-    const [loading, setLoading] = useState(true);
+  const { id } = useParams();
+  const [product, setProduct] = useState(null);
+  const [allProducts, setAllProducts] = useState([]);
 
-    useEffect(() => {
-        const fetchProduct = async () => {
-            try {
-                const response = await fetch('http://localhost:3001/api/products/1'); // Cambia '1' por el ID del producto que quieras obtener
-                const data = await response.json();
-                setProduct(data);
-            } catch (error) {
-                console.error('Error fetching product:', error);
-            } finally {
-                setLoading(false);
-            }
-        };
+  useEffect(() => {
+    axios.get(`http://localhost:3001/api/products/${id}`)
+      .then(res => setProduct(res.data))
+      .catch(err => console.error('Error al cargar producto:', err));
 
-        fetchProduct();
-    }, []);
+    axios.get(`http://localhost:3001/api/products`)
+      .then(res => setAllProducts(res.data))
+      .catch(err => console.error('Error al cargar productos:', err));
+  }, [id]);
 
-    if (loading) {
-        return <div>Loading...</div>;
-    }
+  if (!product) return <p>Cargando...</p>;
 
-    if (!product) {
-        return <div>Product not found</div>;
-    }
-
-    return (
-        <div className="product-detail">
-            <Header />
-            <main className="main-content">
-                <h1>{product.name}</h1>
-                <img src={product.image} alt={product.name} />
-                <p>{product.description}</p>
-                <p>Price: ${product.price}</p>
-            </main>
-            <Footer />
-        </div>
-    );
+  return (
+    <div className="product-detail">
+      <ProductImageGallery imageUrl={product.imageUrl} />
+      <ProductInfo product={product} onAddToCart={() => console.log('agregar')} />
+      <RecommendationList currentProductId={product._id} allProducts={allProducts} />
+    </div>
+  );
 }

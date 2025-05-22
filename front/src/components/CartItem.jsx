@@ -1,12 +1,21 @@
-import React from "react";
+import React from 'react';
+import '../styles/cartItem.css';
 
-
-export default function CartItem({ product, onRemoveFromCart }) {
-    return (
-
-        <div className="cart-item">
-        
-        
+export default function CartItem({ item, onIncrease, onDecrease, onRemove }) {
+  return (
+    <div className="cart-item">
+      <img src={item.imageUrl} alt={item.name} className="cart-item-img" />
+      <div className="cart-item-details">
+        <h3>{item.name}</h3>
+        <p>{item.description}</p>
+        <p className="price-unit">Precio: ${item.price.toFixed(2)}</p>
+        <div className="quantity-controls">
+          <button onClick={() => onDecrease(item)}>-</button>
+          <span>{item.quantity}</span>
+          <button onClick={() => onIncrease(item)}>+</button>
         </div>
-    );
+        <button className="remove-btn" onClick={() => onRemove(item)}>X</button>
+      </div>
+    </div>
+  );
 }

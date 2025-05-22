@@ -1,0 +1,45 @@
+.quantity-slider {
+  margin: 20px 0;
+}
+
+.slider-wrapper {
+  position: relative;
+  width: 100%;
+  padding-top: 25px;
+}
+
+input[type="range"] {
+  width: 100%;
+  appearance: none;
+  height: 6px;
+  background: #ec1c24;
+  border-radius: 4px;
+  outline: none;
+  position: relative;
+  z-index: 1;
+}
+
+input[type="range"]::-webkit-slider-thumb {
+  appearance: none;
+  width: 20px;
+  height: 20px;
+  background: white;
+  border: 2px solid #ec1c24;
+  border-radius: 50%;
+  cursor: pointer;
+  z-index: 2;
+  position: relative;
+}
+
+.slider-bubble {
+  position: absolute;
+  top: 0;
+  transform: translateX(-50%);
+  background-color: #ec1c24;
+  color: white;
+  padding: 4px 8px;
+  font-size: 14px;
+  border-radius: 8px;
+  transition: left 0.3s ease;
+  z-index: 3;
+}

@@ -1,0 +1,7 @@
+.cart-item{
+color: #ec1c24;
+  font-weight: bold;
+  margin: 10px 0;
+  animation: shake 0.3s ease-in-out infinite;
+
+}

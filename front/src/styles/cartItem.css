@@ -1,7 +1,37 @@
-.cart-item{
-color: #ec1c24;
-  font-weight: bold;
-  margin: 10px 0;
-  animation: shake 0.3s ease-in-out infinite;
+.cart-item {
+  display: flex;
+  gap: 16px;
+  border-bottom: 1px solid #ddd;
+  padding: 12px 0;
+  align-items: center;
+}
 
+.cart-item-img {
+  width: 80px;
+  height: 80px;
+  object-fit: cover;
+  border-radius: 8px;
+}
+
+.cart-item-details {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.quantity-controls button,
+.remove-btn {
+  background-color: #ec1c24;
+  color: white;
+  border: none;
+  padding: 4px 10px;
+  border-radius: 6px;
+  font-size: 14px;
+  cursor: pointer;
+}
+
+.price-unit {
+  font-weight: bold;
+  color: #5e2e15;
 }

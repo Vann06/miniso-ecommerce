@@ -6,6 +6,8 @@ import dotenv from 'dotenv';
 import productRoutes from './routes/productRoutes.js';
 import favoriteRoutes from './routes/favoriteRoutes.js';
 import ratingRoutes from './routes/ratingRoutes.js';
+import cartRoutes from './routes/cartRoutes.js';
+
 
 dotenv.config();
 
@@ -15,6 +17,8 @@ app.use(express.json());
 app.use('/api/products', productRoutes);
 app.use('/api/favorites', favoriteRoutes);
 app.use('/api/ratings', ratingRoutes);
+app.use('/api/cart', cartRoutes); 
+
 
 console.log('URI de conexion:',process.env.MONGO_URI);
 // Connect to MongoDB Atlas

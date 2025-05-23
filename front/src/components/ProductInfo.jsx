@@ -4,9 +4,11 @@ import ProductTitle from './ProductTitle';
 import ProductPrice from './ProductPrice';
 import QuantitySlider from './QuantitySlider';
 import FavoriteButton from './FavoriteButton';
+import { useCart } from '../context/CartContext';
 
 export default function ProductInfo({ product, onAddToCart }) {
   const [quantity, setQuantity] = useState(1);
+  const {addToCart} = useCart();
 
   return (
     <div className="product-info">
@@ -14,7 +16,12 @@ export default function ProductInfo({ product, onAddToCart }) {
       <ProductPrice price={product.price} discountPrice={product.discountPrice} />
       <QuantitySlider quantity={quantity} setQuantity={setQuantity} />
       <div className="options">
-        <button className="button-cart" onClick={() => onAddToCart({ ...product, quantity })}>+ Agregar {quantity} al carrito</button>
+         <button
+          className="button-cart"
+          onClick={() => addToCart({ ...product, quantity })}
+        >
+          + Agregar {quantity} al carrito
+        </button>
         <FavoriteButton />
       </div>
     </div>

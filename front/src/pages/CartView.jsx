@@ -1,26 +1,18 @@
-import '../styles/cart.css';
+import { useCart } from '../context/CartContext';
+import React from 'react';
 import Header from '../components/Header';
 import Footer from '../components/Footer';
+import RecommendationList from '../components/RecommendationList';
 import CartSummary from '../components/CartSummary';
 import CartItem from '../components/CartItem';
-import React, { useState, useEffect } from 'react';
-import axios from 'axios';
-import RecommendationList from '../components/RecommendationList';
 
 export default function CartView() {
-  const [cartItems, setCartItems] = useState([]);
+  const { cartItems, removeItem, clearCart, increase, decrease } = useCart();
 
-  useEffect(() => {
-    axios.get('http://localhost:3001/api/cart')
-      .then(res => setCartItems(res.data))
-      .catch(err => console.error(err));
-  }, []);
-
-  const increaseQuantity = (item) => {};
-  const decreaseQuantity = (item) => {};
-  const removeItem = (item) => {};
-  const checkout = () => {};
-  const clearCart = () => {};
+  const checkout = () => {
+    alert('¡Gracias por tu compra :3!');
+    clearCart();
+  };
 
   return (
     <div className="cart-view">
@@ -30,17 +22,17 @@ export default function CartView() {
           <CartSummary
             cartItems={cartItems}
             onClearCart={clearCart}
-            onCheckout={checkout}
+            onCheckout={checkout} 
           />
         </div>
         <div className="cart-items-section">
           {cartItems.length > 0 ? (
             cartItems.map(item => (
               <CartItem
-                key={item._id || item.id}
+                key={item._id}
                 item={item}
-                onIncrease={increaseQuantity}
-                onDecrease={decreaseQuantity}
+                onIncrease={increase}
+                onDecrease={decrease}
                 onRemove={removeItem}
               />
             ))
@@ -51,7 +43,6 @@ export default function CartView() {
       </main>
 
       <RecommendationList />
-
       <Footer />
     </div>
   );

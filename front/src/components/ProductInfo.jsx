@@ -14,7 +14,7 @@ export default function ProductInfo({ product, onAddToCart }) {
       <ProductPrice price={product.price} discountPrice={product.discountPrice} />
       <QuantitySlider quantity={quantity} setQuantity={setQuantity} />
       <div className="options">
-        <button onClick={() => onAddToCart({ ...product, quantity })}>+ Agregar {quantity} al carrito</button>
+        <button className="button-cart" onClick={() => onAddToCart({ ...product, quantity })}>+ Agregar {quantity} al carrito</button>
         <FavoriteButton />
       </div>
     </div>

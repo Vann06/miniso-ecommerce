@@ -7,6 +7,6 @@ export default function ProductPrice({ price, discountPrice }) {
       <span className="price-discount">${discountPrice.toFixed(2)}</span>
     </p>
   ) : (
-    <p className="price">${price.toFixed(2)}</p>
+    <p className="price">Q{price.toFixed(2)}</p>
   );
 }

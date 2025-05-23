@@ -4,12 +4,20 @@ import axios from 'axios';
 import ProductInfo from '../components/ProductInfo';
 import ProductImageGallery from '../components/ProductImageGallery';
 import RecommendationList from '../components/RecommendationList';
+import { useProductHistory } from '../context/ProductHistoryContext';
 import '../styles/productDetail.css'
 
 export default function ProductDetailView() {
   const { id } = useParams();
   const [product, setProduct] = useState(null);
   const [allProducts, setAllProducts] = useState([]);
+  const { addToHistory } = useProductHistory();
+
+  
+  useEffect(() => {
+    if (product) addToHistory(product);
+  }, [product]);
+
 
   useEffect(() => {
     axios.get(`http://localhost:3001/api/products/${id}`)
@@ -33,3 +41,5 @@ export default function ProductDetailView() {
     </div>
   );
 }
+
+

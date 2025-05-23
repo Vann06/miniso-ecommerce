@@ -23,11 +23,25 @@ export default function FavoritesView() {
         <div className="favorites">
             <Header />
             <main className="main-content">
-                
+                <h2 className="centered-title">
+                    Mis Favoritos
+                </h2>
+                <div className="product-grid">
+                    {favorites.length === 0 ? (
+                        <p> No hay productos :c </p>
+                    ):(
+                        favorites.map(product => (
+                        <ProductCard
+                            key={product._id}
+                            product={product}
+                            onAddToCart={() => {}}
+                            onClick={() => {}}
+                        />
+                        ))
+                    )}
+                </div>
             </main>
             <Footer />
         </div>
     );
-
-
 }

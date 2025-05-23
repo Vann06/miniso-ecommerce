@@ -15,7 +15,7 @@ export default function ProductCard({ product, onAddToCart, onClick }) {
         <h3 className="product-name">{product.name}</h3>
         <ReviewStars rating={product.rating} />
         <div className="product-bottom-row">
-          <p className="product-price">${product.price.toFixed(2)}</p>
+          <p className="product-price">GTQ{product.price.toFixed(2)}</p>
           <AddToCartButton onClick={(e) => {
             e.stopPropagation();
             onAddToCart(product);

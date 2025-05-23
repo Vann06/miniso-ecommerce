@@ -1,15 +1,14 @@
 import React, { useMemo } from 'react';
-import ProductCard from './ProductCard';
-import '../styles/recommendationList.css';
 import NavigableProductCard from './CardNavigate';
+import { useProductHistory } from '../context/ProductHistoryContext';
+import '../styles/recommendationList.css';
 
-export default function RecommendationList({ currentProductId, allProducts }) {
+export default function RecommendationList() {
+  const { historyRef } = useProductHistory();
+
   const recommended = useMemo(() => {
-    const filtered = allProducts.filter(
-      p => p._id !== currentProductId
-    );
-    return filtered.sort(() => 0.5 - Math.random()).slice(0, 3);
-  }, [allProducts, currentProductId]);
+    return historyRef.current.slice().reverse().slice(0, 3);
+  }, [historyRef.current]);
 
   return (
     <section className="recommendations">

@@ -13,7 +13,7 @@ export default function Footer() {
     <footer className="footer">
       <div className="footer-left"> <img src={logo} alt="Miniso Logo" className="footer-logo" /> </div>
       <div className="footer-right">
-        <h3>CONTACTO</h3>
+        <h3 className="contacto">CONTACTO</h3>
         <p>Diagonal 6, 13-01 Zona 10, Oakland Mall, Guatemala</p>
         <p> hola@miniso.com.gt</p>
         <p> +502 2336-5701 | +502 3760-2892</p>

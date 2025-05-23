@@ -20,7 +20,7 @@ export default function ProductCard({ product, onClick }) {
   return (
     <div className="product-card" onClick={onClick} style={{ cursor: 'pointer' }}>
       {added && <div className="cart-toast">Producto agregado</div>}
-      <FavoriteButton />
+      <FavoriteButton productId={product._id} favorite={product.favorite} />
       <ProductImage imageUrl={product.imageUrl} name={product.name} />
       <div className="product-info">
         <h3 className="product-name">{product.name}</h3>

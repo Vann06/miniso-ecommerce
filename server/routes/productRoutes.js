@@ -39,4 +39,18 @@ router.get('/:id', async (req, res) => {
     }
 });
 
+// Actualizar favorito
+router.patch('/:id/favorite', async (req, res) => {
+  try {
+    const product = await Product.findByIdAndUpdate(
+      req.params.id,
+      { favorite: req.body.favorite },
+      { new: true }
+    );
+    res.json(product);
+  } catch (error) {
+    res.status(500).json({ message: 'Error al actualizar favorito', error });
+  }
+});
+
 export default router;

@@ -10,8 +10,12 @@ export default function FavoritesView() {
     const [favorites, setFavorites] = useState([]);
 
     useEffect(() => {
-        axios.get('http://localhost:3001/api/favorites')
-            .then(res => setFavorites(res.data))
+        axios.get('http://localhost:3001/api/products')
+            .then(res => {
+                const favoritos = res.data.filter(product => product.favorite === true);
+                setFavorites(favoritos);
+            }
+                )
             .catch(err => console.error(err));
     }, []);
 

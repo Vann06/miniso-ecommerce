@@ -22,7 +22,7 @@ export default function CartView() {
           <CartSummary
             cartItems={cartItems}
             onClearCart={clearCart}
-            onCheckout={checkout} 
+            onCheckout={checkout}  
           />
         </div>
         <div className="cart-items-section">

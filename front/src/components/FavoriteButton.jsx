@@ -1,13 +1,29 @@
 import React, { useState } from 'react';
+import axios from 'axios';
 import heartEmpty from '../assets/heart-empty.png';
 import heartFull from '../assets/heart-full.png';
 
-export default function FavoriteButton() {
-  const [favorito, setFavorito] = useState(false);
-  const toggleFavorito = () => setFavorito(!favorito);
+export default function FavoriteButton({ productId, favorite = false }) {
+  const [favorito, setFavorito] = useState(favorite);
+
+  const toggleFavorito = async () => {
+    try {
+      const newState = !favorito;
+      setFavorito(newState);
+      await axios.patch(`http://localhost:3001/api/products/${productId}/favorite`, {
+        favorite: newState,
+      });
+    } catch (error) {
+      console.error('Error al actualizar favorito:', error);
+    }
+  };
 
   return (
-    <button className="favorite-inline-btn" onClick={toggleFavorito} title="Agregar a favoritos">
+    <button 
+      className="favorite-inline-btn" 
+      onClick={toggleFavorito}
+      title="Agregar a favoritos"
+    >
       <img
         src={favorito ? heartFull : heartEmpty}
         alt="Favorito"

@@ -30,6 +30,11 @@ const productSchema = new mongoose.Schema({
         type: Number,
         default: 0,
     },
+    favorite: {
+        type: Boolean,
+        default: false,
+    },
+    
 });
 
 export default mongoose.model("Product", productSchema);

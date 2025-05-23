@@ -13,8 +13,10 @@ export default function ProductInfo({ product, onAddToCart }) {
       <ProductTitle name={product.name} description={product.description} rating={product.rating} />
       <ProductPrice price={product.price} discountPrice={product.discountPrice} />
       <QuantitySlider quantity={quantity} setQuantity={setQuantity} />
-      <button onClick={() => onAddToCart({ ...product, quantity })}>+ Agregar {quantity} al carrito</button>
-      <FavoriteButton />
+      <div className="options">
+        <button onClick={() => onAddToCart({ ...product, quantity })}>+ Agregar {quantity} al carrito</button>
+        <FavoriteButton />
+      </div>
     </div>
   );
 }

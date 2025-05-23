@@ -22,3 +22,35 @@ input[type="range"]::-webkit-slider-thumb {
 input[type="range"]::-webkit-slider-thumb:hover {
   transform: scale(1.2);
 }
+
+.options {
+  display: flex;
+  gap: 2rem;
+  align-items: flex-start;
+  margin-bottom: 2rem;
+  margin-top: 3rem;
+}
+
+.options {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-top: 1.5rem;
+}
+
+.favorite-inline-btn {
+  background: none;
+  border: none;
+  padding: 6px;
+  cursor: pointer;
+  transition: transform 0.2s ease-in-out;
+}
+
+.favorite-inline-btn:hover {
+  transform: scale(1.1);
+}
+
+.heart-inline-icon {
+  width: 24px;
+  height: 24px;
+}

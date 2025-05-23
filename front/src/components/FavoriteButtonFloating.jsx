@@ -7,11 +7,14 @@ export default function FavoriteButton() {
   const toggleFavorito = () => setFavorito(!favorito);
 
   return (
-    <button className="favorite-inline-btn" onClick={toggleFavorito} title="Agregar a favoritos">
+    <button className="favorite-floating-btn" onClick={(e) => {
+      e.stopPropagation(); 
+      toggleFavorito();
+    }}>
       <img
         src={favorito ? heartFull : heartEmpty}
         alt="Favorito"
-        className="heart-inline-icon"
+        className="heart-floating-icon"
       />
     </button>
   );

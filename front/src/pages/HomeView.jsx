@@ -31,17 +31,17 @@ export default function HomeView() {
             <main className="main-content">
                 <Slider />
                 <About />
-                <div className ="product-grid">     
+                <div className="product-grid">
                     {products.map(product => (
-                        <ProductCard 
-                            key={product._id}
-                            product={product}
-                            onAddToCart={handleAddToCart}
-                            onFavorite={handleFavorite}
-                            onClick={() => navigate(`/product/${product._id}`)}
+                        <ProductCard
+                        key={product._id}
+                        product={product}
+                        onAddToCart={handleAddToCart}
+                        onClick={() => navigate(`/product/${product._id}`)}
                         />
                     ))}
                 </div>
+
             </main>
             <Footer />
         </div>

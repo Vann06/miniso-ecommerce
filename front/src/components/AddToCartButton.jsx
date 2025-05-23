@@ -1,11 +1,10 @@
 import React from 'react';
+import cartIcon from '../assets/add-to-cart.png'; // debe existir
 
 export default function AddToCartButton({ onClick }) {
   return (
-    <div className="product-actions">
-      <button className="add-to-cart" onClick={onClick}>
-        Add
-      </button>
-    </div>
+    <button className="btn-cart" onClick={onClick}>
+      <img src={cartIcon} alt="Agregar al carrito" className="cart-icon" />
+    </button>
   );
 }

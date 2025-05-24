@@ -11,6 +11,12 @@
   gap: 10px;
   box-sizing: border-box;
 }
+.ahorro {
+  color: #198754; 
+  font-weight: 600;
+  font-size: 15px;
+  margin-top: 4px;
+}
 
 .cart-summary h2 {
   font-size: 20px;

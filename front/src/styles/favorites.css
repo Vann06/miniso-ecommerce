@@ -1,5 +1,5 @@
 .favorites {
-  padding-top: 100px; /* espacio para no tapar con el header fijo */
+  padding-top: 100px; 
   background-color: #fff;
   min-height: 100vh;
   box-sizing: border-box;
@@ -31,12 +31,6 @@
   border-radius: 2px;
 }
 
-.product-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-  gap: 24px;
-  padding-bottom: 40px;
-}
 
 .favorites p {
   text-align: center;

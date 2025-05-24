@@ -9,7 +9,9 @@ export default function CartItem({ item, onIncrease, onDecrease, onRemove }) {
         <h3>{item.name}</h3>
         <p>{item.description}</p>
         <div className="cart-item-bottom">
-          <span className="price-unit">GTQ {item.price.toFixed(2)}</span>
+          <p className="price-unit">
+            Precio: Q{item.discount && item.discount > 0 ? item.discount.toFixed(2) : item.price.toFixed(2)}
+          </p>
           <div className="quantity-controls">
             <button onClick={() => onDecrease(item)}>-</button>
             <span>{item.quantity}</span>

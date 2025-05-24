@@ -34,7 +34,10 @@ const productSchema = new mongoose.Schema({
         type: Boolean,
         default: false,
     },
-    
+    discount: {
+        type: Number,
+        default: 0,
+    },
 });
 
 export default mongoose.model("Product", productSchema);

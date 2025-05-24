@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import '../styles/productCard.css';
+import ProductPrice from './ProductPrice';
 import ProductImage from './ProductImage';
 import ReviewStars from './ReviewStars';
 import AddToCartButton from './AddToCartButton';
@@ -26,7 +27,7 @@ export default function ProductCard({ product, onClick }) {
         <h3 className="product-name">{product.name}</h3>
         <ReviewStars rating={product.rating} />
         <div className="product-bottom-row">
-          <p className="product-price">GTQ{product.price.toFixed(2)}</p>
+          <ProductPrice price={product.price} discount={product.discount} />
           <AddToCartButton onClick={handleAddToCart} />
         </div>
       </div>

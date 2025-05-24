@@ -1,4 +1,5 @@
 import React from 'react';
+import '../styles/wave.css';
 
 export default function SliderWave() {
   return (

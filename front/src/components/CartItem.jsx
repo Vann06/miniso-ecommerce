@@ -8,14 +8,16 @@ export default function CartItem({ item, onIncrease, onDecrease, onRemove }) {
       <div className="cart-item-details">
         <h3>{item.name}</h3>
         <p>{item.description}</p>
-        <p className="price-unit">Precio: ${item.price.toFixed(2)}</p>
-        <div className="quantity-controls">
-          <button onClick={() => onDecrease(item)}>-</button>
-          <span>{item.quantity}</span>
-          <button onClick={() => onIncrease(item)}>+</button>
+        <div className="cart-item-bottom">
+          <span className="price-unit">GTQ {item.price.toFixed(2)}</span>
+          <div className="quantity-controls">
+            <button onClick={() => onDecrease(item)}>-</button>
+            <span>{item.quantity}</span>
+            <button onClick={() => onIncrease(item)}>+</button>
+          </div>
         </div>
-        <button className="remove-btn" onClick={() => onRemove(item)}>X</button>
       </div>
+      <button className="remove-btn" onClick={() => onRemove(item)}>×</button>
     </div>
   );
 }

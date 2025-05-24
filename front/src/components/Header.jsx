@@ -14,7 +14,7 @@ export default function Header() {
       <div className="header-left"> <Link to="/"> <img src={logo} alt="Miniso" className="header-logo" /> </Link> </div>
       <nav className="header-nav">
         <Link to="/about">About</Link>
-        <Link to="/">Shop</Link>
+        <Link to="/#product">Shop</Link>
         <Link to="/favorites"> <img src={heart} alt="Favoritos" className="nav-icon" /> </Link>
         <div className="cart-icon-wrapper">
           <Link to="/cart">  <img src={cart} alt="Carrito" className="nav-icon" /> </Link>

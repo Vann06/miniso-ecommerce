@@ -13,7 +13,7 @@ export default function About() {
         <p className="about-paragraph">
           Nuestro compromiso es brindarte una experiencia accesible, estética y práctica en cada rincón de tu vida.
         </p>
-        <a href="/shop" className="about-btn">Explorar Tienda →</a>
+        <a href="/#shop" className="about-btn">Explorar Tienda →</a>
       </div>
     </section>
   );

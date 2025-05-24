@@ -3,11 +3,19 @@ import Header from '../components/Header';
 import Footer from '../components/Footer';
 import ProductCard from '../components/ProductCard';
 import axios from 'axios';
+import { useNavigate } from 'react-router-dom';
 
 import '../styles/favorites.css';
 
 export default function FavoritesView() {
     const [favorites, setFavorites] = useState([]);
+    const navigate = useNavigate();
+
+    useEffect(() => {
+        window.scrollTo(0, 0);
+        }, []);
+
+    
 
     useEffect(() => {
         axios.get('http://localhost:3001/api/products')
@@ -18,10 +26,6 @@ export default function FavoritesView() {
                 )
             .catch(err => console.error(err));
     }, []);
-
-    const handleRemoveFromFavorites = (productId) => {
-        console.log('Producto eliminado de favoritos:', productId);
-    };
 
     return (
         <div className="favorites">
@@ -39,7 +43,7 @@ export default function FavoritesView() {
                             key={product._id}
                             product={product}
                             onAddToCart={() => {}}
-                            onClick={() => {}}
+                            onClick={() => navigate(`/product/${product._id}`)}
                         />
                         ))
                     )}

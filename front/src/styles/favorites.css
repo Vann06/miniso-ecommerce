@@ -1,0 +1,45 @@
+.favorites {
+  padding-top: 100px; /* espacio para no tapar con el header fijo */
+  background-color: #fff;
+  min-height: 100vh;
+  box-sizing: border-box;
+}
+
+.main-content {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.centered-title {
+  font-size: 28px;
+  color: #8b1c20;
+  text-align: center;
+  margin-bottom: 30px;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  position: relative;
+}
+
+.centered-title::after {
+  content: '';
+  width: 60px;
+  height: 3px;
+  background: #ec1c24;
+  display: block;
+  margin: 10px auto 0;
+  border-radius: 2px;
+}
+
+.product-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 24px;
+  padding-bottom: 40px;
+}
+
+.favorites p {
+  text-align: center;
+  color: #777;
+  font-size: 16px;
+}

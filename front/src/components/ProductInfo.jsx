@@ -22,7 +22,7 @@ export default function ProductInfo({ product, onAddToCart }) {
         >
           + Agregar {quantity} al carrito
         </button>
-        <FavoriteButton />
+      <FavoriteButton productId={product._id} favorite={product.favorite} />
       </div>
     </div>
   );

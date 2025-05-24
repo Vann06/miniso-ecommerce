@@ -1,20 +1,18 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import App from './App';
-import { ProductHistoryProvider } from './context/ProductHistoryContext';
+import { BrowserRouter } from 'react-router-dom';
 import { CartProvider } from './context/CartContext';
-import './styles/index.css';
+import { ProductHistoryProvider } from './context/ProductHistoryContext';
 
 ReactDOM.createRoot(document.getElementById('root')).render(
-  <CartProvider>
-    <ProductHistoryProvider>
-        <React.StrictMode>
+  <React.StrictMode>
+    <BrowserRouter>
+      <CartProvider>
+        <ProductHistoryProvider>
           <App />
-        </React.StrictMode>
-      </ProductHistoryProvider>
-  </CartProvider>
-  
- 
+        </ProductHistoryProvider>
+      </CartProvider>
+    </BrowserRouter>
+  </React.StrictMode>
 );
-
-

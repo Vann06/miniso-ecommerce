@@ -8,10 +8,10 @@ export default function CartSummary({ cartItems, onClearCart, onCheckout }) {
   const isError = total > 999.99
  return (
     <div className="cart-summary">
-      <h2>Resumen</h2>
-      <p>Subtotal: ${subtotal.toFixed(2)}</p>
-      <p>Shipping: ${shipping}</p>
-      <p>Total: ${total.toFixed(2)}</p>
+      <h2>Cart Summary</h2>
+      <p>Subtotal: Q{subtotal.toFixed(2)}</p>
+      <p>Shipping: Q{shipping}</p>
+      <p>Total: Q{total.toFixed(2)}</p>
       {isError && ( <p className="error-message"> ERROR: El total excede $999.99</p>)}
       <div className="cart-actions">
         <button className="checkout-btn" onClick={onCheckout} disabled={isError}> Finalizar Compra </button>

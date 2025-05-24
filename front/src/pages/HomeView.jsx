@@ -18,20 +18,27 @@ export default function HomeView() {
         .catch(err => console.error(err));
     }, []);
 
+     useEffect(() => {
+    const hash = window.location.hash;
+    if (hash === '#product') {
+      const section = document.getElementById('product');
+      if (section) {
+        section.scrollIntoView({ behavior: 'smooth' });
+      }
+    }
+  }, []);
+
     const handleAddToCart = (product) => {
         console.log('Producto agregado al carrito:', product);
     };
 
-    const handleFavorite = (product) => {
-        console.log('Producto agregado a favoritos:', product);
-    }
     return (
         <div className="home">
             <Header />
             <main className="main-content">
                 <Slider />
                 <About />
-                <div className="product-grid">
+                <div id="product" className="product-grid">
                     {products.map(product => (
                         <ProductCard
                         key={product._id}

@@ -9,7 +9,7 @@ import favoriteRoutes from './routes/favoriteRoutes.js';
 import ratingRoutes from './routes/ratingRoutes.js';
 import cartRoutes from './routes/cartRoutes.js';
 
-dotenv.config();
+dotenv.config({ path: './server/.env' }); 
 
 const app = express();
 app.use(cors());

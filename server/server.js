@@ -11,6 +11,8 @@ import cartRoutes from './routes/cartRoutes.js';
 
 dotenv.config();
 
+const port = process.env.PORT || 3001;
+
 const app = express();
 app.use(cors());
 app.use(express.json());    
@@ -28,3 +30,10 @@ mongoose.connect(process.env.MONGO_URI)
     
 
 
+app.get('/', (req, res) => {
+    res.send('API is running');
+});
+
+app.listen(port, () => {
+    console.log(`Server is running on port http://localhost:${port}`); 
+});

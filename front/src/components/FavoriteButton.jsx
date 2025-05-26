@@ -2,6 +2,8 @@ import React, { useState } from 'react';
 import axios from 'axios';
 import heartEmpty from '../assets/heart-empty.png';
 import heartFull from '../assets/heart-full.png';
+import api from '../api';
+
 
 export default function FavoriteButton({ productId, favorite = false }) {
   const [favorito, setFavorito] = useState(favorite);
@@ -10,9 +12,11 @@ export default function FavoriteButton({ productId, favorite = false }) {
     try {
       const newState = !favorito;
       setFavorito(newState);
-      await axios.patch(`http://localhost:3001/api/products/${productId}/favorite`, {
-        favorite: newState,
-      });
+     
+  await api.patch(`/products/${productId}/favorite`, {
+    favorite: newState,
+  });
+
     } catch (error) {
       console.error('Error al actualizar favorito:', error);
     }

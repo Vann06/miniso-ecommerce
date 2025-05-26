@@ -6,6 +6,7 @@ import ProductImageGallery from '../components/ProductImageGallery';
 import RecommendationList from '../components/RecommendationList';
 import { useProductHistory } from '../context/ProductHistoryContext';
 import '../styles/productDetail.css'
+import api from '../api'; 
 
 export default function ProductDetailView() {
   const { id } = useParams();
@@ -20,11 +21,11 @@ export default function ProductDetailView() {
 
 
   useEffect(() => {
-    axios.get(`http://localhost:3001/api/products/${id}`)
+    api.get(`/products/${id}`)
       .then(res => setProduct(res.data))
       .catch(err => console.error('Error al cargar producto:', err));
 
-    axios.get(`http://localhost:3001/api/products`)
+    api.get(`/products`)
       .then(res => setAllProducts(res.data))
       .catch(err => console.error('Error al cargar productos:', err));
   }, [id]);

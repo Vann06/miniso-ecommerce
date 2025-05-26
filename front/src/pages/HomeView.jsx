@@ -5,6 +5,7 @@ import ProductCard from '../components/ProductCard';
 import Slider from '../components/Slider';
 import About from '../components/About';
 import axios from 'axios';
+import api from '../api'; 
 import { useNavigate } from 'react-router-dom';
 import '../styles/home.css';
 
@@ -13,7 +14,7 @@ export default function HomeView() {
     const navigate = useNavigate();
 
     useEffect(() => {
-        axios.get('http://localhost:3001/api/products')
+        api.get('/products')
         .then(res => setProducts(res.data))
         .catch(err => console.error(err));
     }, []);

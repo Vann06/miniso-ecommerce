@@ -3,6 +3,7 @@ import Header from '../components/Header';
 import Footer from '../components/Footer';
 import ProductCard from '../components/ProductCard';
 import axios from 'axios';
+import api from '../api'; 
 import { useNavigate } from 'react-router-dom';
 
 import '../styles/favorites.css';
@@ -18,12 +19,11 @@ export default function FavoritesView() {
     
 
     useEffect(() => {
-        axios.get('http://localhost:3001/api/products')
+        api.get('/products')
             .then(res => {
                 const favoritos = res.data.filter(product => product.favorite === true);
                 setFavorites(favoritos);
-            }
-                )
+            })
             .catch(err => console.error(err));
     }, []);
 

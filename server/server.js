@@ -1,3 +1,4 @@
+
 import express from 'express';
 import mongoose from 'mongoose';
 import cors from 'cors';
@@ -8,32 +9,23 @@ import favoriteRoutes from './routes/favoriteRoutes.js';
 import ratingRoutes from './routes/ratingRoutes.js';
 import cartRoutes from './routes/cartRoutes.js';
 
-
 dotenv.config();
-
-const port = process.env.PORT || 3001;
 
 const app = express();
 app.use(cors());
-app.use(express.json());    
+app.use(express.json());
+
 app.use('/api/products', productRoutes);
 app.use('/api/favorites', favoriteRoutes);
 app.use('/api/ratings', ratingRoutes);
-app.use('/api/cart', cartRoutes); 
-
-
-console.log('URI de conexion:',process.env.MONGO_URI);
-// Connect to MongoDB Atlas
-mongoose.connect(process.env.MONGO_URI)
-    .then(() => console.log('MongoDB connected'))
-    .catch(err => console.error('MongoDB connection error:', err));
-    
-
+app.use('/api/cart', cartRoutes);
 
 app.get('/', (req, res) => {
-    res.send('API is running');
+  res.send('API is running');
 });
 
-app.listen(port, () => {
-    console.log(`Server is running on port http://localhost:${port}`); 
-});
+mongoose.connect(process.env.MONGO_URI)
+  .then(() => console.log('MongoDB connected'))
+  .catch(err => console.error('MongoDB connection error:', err));
+
+export default app;

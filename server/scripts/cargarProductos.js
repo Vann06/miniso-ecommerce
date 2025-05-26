@@ -123,6 +123,7 @@ const productosOnePiece = [
     category: 'accesorios',
     rating: 4,
     favorite: true,
+    discount: 0.00,
   },
   {
     name: 'Set de Minifiguras Steve y Alex - Minecraft',

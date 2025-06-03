@@ -1,4 +1,3 @@
-
 <div align="center">
 
 # MINISO E-Commerce
@@ -56,14 +55,25 @@ Abre tu navegador en: http://localhost:5173
 
 <div align="center">
 
-| Comando           | Acción                      |
-|-------------------|-----------------------------|
-| `npm run dev`     | 🚀 Iniciar en desarrollo     |
-| `npm run build`   | 📦 Compilar para producción  |
-| `npm run preview` | 👀 Ver producción local      |
-| `npm run lint`    | 🔍 Verificar errores de código |
+| Comando           | Acción                             |
+|-------------------|-------------------------------------|
+| `npm run dev`     | 🚀 Iniciar en desarrollo             |
+| `npm run build`   | 📦 Compilar para producción          |
+| `npm run preview` | 👀 Ver producción local              |
+| `npm run lint`    | 🔍 Verificar errores de estilo       |
+| `npm test`        | 🧪 Ejecutar pruebas automáticas      |
 
 </div>
+
+---
+
+## 🧪 Pruebas Realizadas
+
+- Se validó la lógica de descuento mostrando el precio anterior tachado.
+- Se probó el cálculo de ahorro total y subtotal en el carrito.
+- Se validó que los favoritos se actualicen correctamente con iconos.
+- Se integró `useMemo` para optimizar el rendimiento del carrito.
+- Linter (`eslint`) aplicado en ambos proyectos (`front/` y `server/`).
 
 ---
 
@@ -73,7 +83,7 @@ Abre tu navegador en: http://localhost:5173
 - Carrito de compras visual
 - Sistema de descuentos y ahorros
 - Navegación SPA moderna
-- Animaciones y feedback visual kawaii
+- Animaciones y feedback visual 
 
 ---
 
@@ -96,9 +106,8 @@ miniso-ecommerce/
 └── README.md
 ```
 
-
 ---
 
 ## 👩‍💻 Autora
 
-**Vianka Castro **
+**Vianka Castro**

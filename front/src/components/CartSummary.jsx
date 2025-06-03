@@ -2,17 +2,23 @@ import React from 'react';
 import '../styles/cartSummary.css';
 
 export default function CartSummary({ cartItems, onClearCart, onCheckout }) {
-  const subtotal = cartItems.reduce((sum, item) => {
-    const actualPrice = item.discount && item.discount > 0 ? item.discount: item.price;
-    return sum + actualPrice * item.quantity;
-  } , 0);
-  const ahorro = cartItems.reduce((sum,item) => {
-    if(item.discount && item.discount > 0 && item.discount < item.price) {
-      const ahorroPorUnidad = item.price - item.discount;
-      return sum + ahorroPorUnidad * item.quantity;
-    }
-    return sum;
-  }, 0);
+  const subtotal = useMemo(() => {
+    return cartItems.reduce((sum, item) => {
+      const actualPrice = item.discount && item.discount > 0 ? item.discount : item.price;
+      return sum + actualPrice * item.quantity;
+    }, 0);
+  }, [cartItems]);
+
+  const ahorro = useMemo(() => {
+    return cartItems.reduce((sum, item) => {
+      if (item.discount && item.discount > 0 && item.discount < item.price) {
+        const ahorroPorUnidad = item.price - item.discount;
+        return sum + ahorroPorUnidad * item.quantity;
+      }
+      return sum;
+    }, 0);
+  }, [cartItems]);
+  
   const shipping = 4.99;
   const total = subtotal+shipping;
   const isError = total > 999.99

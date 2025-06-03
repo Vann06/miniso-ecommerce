@@ -3,6 +3,8 @@
   height: 100px;
   max-height: 15vh;
   display: block;
+  margin-top: -5px;
   position: relative;
   bottom: -1px;
+  z-index: 9999;
 }

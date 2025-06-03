@@ -1,4 +1,5 @@
-import React from 'react';
+import React, { useState, useEffect, useMemo} from 'react';
+
 import '../styles/cartSummary.css';
 
 export default function CartSummary({ cartItems, onClearCart, onCheckout }) {
